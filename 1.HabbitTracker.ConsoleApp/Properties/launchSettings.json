@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "1.HabbitTracker.ConsoleApp": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\a\\Desktop\\C#Academy\\1.HabbitTracker.ConsoleApp"
+    }
+  }
+}
