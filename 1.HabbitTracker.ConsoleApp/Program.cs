@@ -5,11 +5,13 @@ decimal height = 1.88m;
 bool alive = true;
 
 
-Console.WriteLine("These are the most common data types:");
-Console.WriteLine($"{index++}  - String, example {name}");
-Console.WriteLine($"{index++}  - Char, example {initail}");
-Console.WriteLine($"{index++}  - Int, example {6}");
-Console.WriteLine($"{index++}  - Decimal, example {height}");
-Console.WriteLine($"{index++}  - Bool, example {true}");
+var myParagraph = @$"These are the most common data types:
+{index++}  - String, example {name}
+{index++}  - Char, example {initail}
+{index++}  - Int, example {6}
+{index++}  - Decimal, example {height}
+{index++}  - Bool, example {alive}";
+
+Console.WriteLine(myParagraph);
 Console.ReadLine();
 
