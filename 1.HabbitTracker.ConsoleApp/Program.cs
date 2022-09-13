@@ -1,7 +1,15 @@
-﻿Console.WriteLine("These are the most common data types:");
-Console.WriteLine(1+ " - String, example" + " - Good");
-Console.WriteLine(2+ " - Char, example " + 'G');
-Console.WriteLine(3+ " - Int, example " + 6);
-Console.WriteLine(4+ " - Decimal, example " + 6.6m);
-Console.WriteLine(5+ " - Bool, example " + true);
+﻿string name = "Bob";
+int age = 1;
+char initail = 'B';
+decimal height = 1.88m;
+bool alive = true;
+
+
+Console.WriteLine("These are the most common data types:");
+Console.WriteLine(age++ + " - String, example " + name);
+Console.WriteLine(age++ + " - Char, example " + initail);
+Console.WriteLine(age++ + " - Int, example " + 6);
+Console.WriteLine(age++ + " - Decimal, example " + height);
+Console.WriteLine(age++ + " - Bool, example " + true);
 Console.ReadLine();
+
