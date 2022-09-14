@@ -17,4 +17,27 @@ Console.WriteLine($"Hello {name} it is {date.DayOfWeek} , welcome the the math g
 Console.WriteLine(introduction);
 
 Console.WriteLine("------------------------------------");
-Console.ReadLine();
+
+var gameSelected = Console.ReadLine();
+
+if (gameSelected == "a")
+{
+    Console.WriteLine("Addition game is selected");
+        }
+else if (gameSelected == "s")
+{
+    Console.WriteLine("Subtraction game is selected");
+}
+else if (gameSelected == "d")
+{
+    Console.WriteLine("Division game is selected");
+}
+else if(gameSelected == "m")
+{
+    Console.WriteLine("Multiplication game is selected");
+}
+else
+{
+    Console.WriteLine("Goodbye");
+}
+Environment.Exit(0);
