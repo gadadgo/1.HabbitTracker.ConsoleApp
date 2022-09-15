@@ -20,24 +20,45 @@ Console.WriteLine("------------------------------------");
 
 var gameSelected = Console.ReadLine();
 
-if (gameSelected == "a")
+if (gameSelected.Trim().ToLower() == "a")
 {
-    Console.WriteLine("Addition game is selected");
-        }
-else if (gameSelected == "s")
-{
-    Console.WriteLine("Subtraction game is selected");
+    AdditionGame();
 }
-else if (gameSelected == "d")
+else if (gameSelected.Trim().ToLower() == "s")
 {
-    Console.WriteLine("Division game is selected");
+    SuntractinGame();
 }
-else if(gameSelected == "m")
+else if (gameSelected.Trim().ToLower() == "d")
 {
-    Console.WriteLine("Multiplication game is selected");
+    DivisionGame();
+}
+else if (gameSelected.Trim().ToLower() == "m")
+{
+    MultiplicationGame();
 }
 else
 {
     Console.WriteLine("Goodbye");
 }
+
+void MultiplicationGame()
+{
+    Console.WriteLine("Multiplication game is selected");
+}
+
+void DivisionGame()
+{
+    Console.WriteLine("Division game is selected");
+}
+
+void SuntractinGame()
+{
+    Console.WriteLine("Subtraction game is selected");
+}
+
+void AdditionGame()
+{
+    Console.WriteLine("Addition game is selected");
+}
+
 Environment.Exit(0);
