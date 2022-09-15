@@ -6,7 +6,7 @@ string name = Console.ReadLine();
 
 var date = DateTime.UtcNow;
 
-string introduction = $@"hat game would you like to play? Choose below.
+string introduction = $@"What game would you like to play? Choose below.
 A - Addition
 S - Subtraction
 D - Division
@@ -20,25 +20,27 @@ Console.WriteLine("------------------------------------");
 
 var gameSelected = Console.ReadLine();
 
-if (gameSelected.Trim().ToLower() == "a")
+switch (gameSelected.Trim().ToLower())
 {
-    AdditionGame();
-}
-else if (gameSelected.Trim().ToLower() == "s")
-{
-    SuntractinGame();
-}
-else if (gameSelected.Trim().ToLower() == "d")
-{
-    DivisionGame();
-}
-else if (gameSelected.Trim().ToLower() == "m")
-{
-    MultiplicationGame();
-}
-else
-{
-    Console.WriteLine("Goodbye");
+    case "a":
+        AdditionGame();
+        break;
+    case "s":
+        SubtractinGame();
+        break;
+    case "d":
+        DivisionGame();
+        break;
+    case "m":
+        MultiplicationGame();
+        break;
+    case "q":
+        Console.WriteLine("Goodbye");
+        Environment.Exit(2);
+        break;
+    default:
+        Console.WriteLine("Invalid input");
+        break;
 }
 
 void MultiplicationGame()
@@ -51,7 +53,7 @@ void DivisionGame()
     Console.WriteLine("Division game is selected");
 }
 
-void SuntractinGame()
+void SubtractinGame()
 {
     Console.WriteLine("Subtraction game is selected");
 }
