@@ -2,9 +2,11 @@
 
 Console.WriteLine("Please enter your name");
 
-string name = Console.ReadLine();
+var name = Console.ReadLine();
 
 var date = DateTime.UtcNow;
+
+
 
 string introduction = $@"What game would you like to play? Choose below.
 A - Addition
@@ -14,6 +16,7 @@ M - Multiplication
 Q - Quit the program";
 
 Console.WriteLine($"Hello {name} it is {date.DayOfWeek} , welcome the the math game");
+Console.WriteLine("/n");
 Console.WriteLine(introduction);
 
 Console.WriteLine("------------------------------------");
@@ -35,8 +38,7 @@ switch (gameSelected.Trim().ToLower())
         MultiplicationGame();
         break;
     case "q":
-        Console.WriteLine("Goodbye");
-        Environment.Exit(2);
+        Exit();
         break;
     default:
         Console.WriteLine("Invalid input");
@@ -56,11 +58,36 @@ void DivisionGame()
 void SubtractinGame()
 {
     Console.WriteLine("Subtraction game is selected");
+    var random = new Random();
+    int firstNumber = random.Next(1, 10);
+    int secondNumber = random.Next(1, 10);
+    Console.WriteLine(${firstNumber} + {secondNumber}
 }
 
 void AdditionGame()
 {
     Console.WriteLine("Addition game is selected");
+    var random = new Random();
+    int firstNumber = random.Next(1, 10);
+    int secondNumber = random.Next(1, 10);
+    Console.WriteLine($"{firstNumber} + {secondNumber}");
+    var result = Console.ReadLine();
+    if (int.Parse(result) == firstNumber + secondNumber)
+    {
+        Console.WriteLine("The answer is correct");
+    }
+    else
+    {
+        Console.WriteLine("The answer is wrong");
+    }
+}
+
+
+
+void Exit()
+{
+    Console.WriteLine("Goodbye");
+    Environment.Exit(2);
 }
 
 Environment.Exit(0);
