@@ -48,31 +48,43 @@ switch (gameSelected.Trim().ToLower())
 void MultiplicationGame()
 {
     Console.WriteLine("Multiplication game is selected");
+    int firstNumber;
+    int secondNumber;
+
+    int score = 0;
+
+    for (int i = 0; i < 6; i++)
+    {
+        var random = new Random();
+        firstNumber = random.Next(1, 10);
+        secondNumber = random.Next(1, 10);
+        Console.WriteLine($"{firstNumber} + {secondNumber}");
+        var result = Console.ReadLine();
+        if (int.Parse(result) == firstNumber + secondNumber)
+        {
+            Console.WriteLine("The answer is correct");
+            score++;
+        }
+        else
+        {
+            Console.WriteLine("The answer is wrong");
+        }
+        if (i == 5)
+        {
+            Console.WriteLine($"Game over, your score is {score}");
+        }
+    }
 }
 
 void DivisionGame()
 {
     Console.WriteLine("Division game is selected");
-}
-
-void SubtractinGame()
-{
-    Console.WriteLine("Subtraction game is selected");
     var random = new Random();
     int firstNumber = random.Next(1, 10);
     int secondNumber = random.Next(1, 10);
-    Console.WriteLine(${firstNumber} + {secondNumber}
-}
-
-void AdditionGame()
-{
-    Console.WriteLine("Addition game is selected");
-    var random = new Random();
-    int firstNumber = random.Next(1, 10);
-    int secondNumber = random.Next(1, 10);
-    Console.WriteLine($"{firstNumber} + {secondNumber}");
+    Console.WriteLine($"{firstNumber} : {secondNumber}");
     var result = Console.ReadLine();
-    if (int.Parse(result) == firstNumber + secondNumber)
+    if (int.Parse(result) == firstNumber / secondNumber)
     {
         Console.WriteLine("The answer is correct");
     }
@@ -82,7 +94,68 @@ void AdditionGame()
     }
 }
 
+void SubtractinGame()
+{
+    Console.WriteLine("Subtraction game is selected");
+    int firstNumber;
+    int secondNumber;
 
+    int score = 0;
+
+    for (int i = 0; i < 6; i++)
+    {
+        var random = new Random();
+        firstNumber = random.Next(1, 10);
+        secondNumber = random.Next(1, 10);
+        Console.WriteLine($"{firstNumber} - {secondNumber}");
+        var result = Console.ReadLine();
+        if (int.Parse(result) == firstNumber - secondNumber)
+        {
+            Console.WriteLine("The answer is correct");
+            score++;
+        }
+        else
+        {
+            Console.WriteLine("The answer is wrong");
+        }
+        if (i == 5)
+        {
+            Console.WriteLine($"Game over, your score is {score}");
+        }
+    }
+}
+
+void AdditionGame()
+{
+    Console.WriteLine("Addition game is selected");
+
+    int firstNumber;
+    int secondNumber;
+
+    int score = 0;
+
+    for (int i = 0; i < 6; i++)
+    {
+        var random = new Random();
+        firstNumber = random.Next(1, 10);
+        secondNumber = random.Next(1, 10);
+        Console.WriteLine($"{firstNumber} + {secondNumber}");
+        var result = Console.ReadLine();
+        if (int.Parse(result) == firstNumber + secondNumber)
+        {
+            Console.WriteLine("The answer is correct");
+            score++;
+        }
+        else
+        {
+            Console.WriteLine("The answer is wrong");
+        }
+        if (i == 5)
+        {
+            Console.WriteLine($"Game over, your score is {score}");
+        }
+    }
+}
 
 void Exit()
 {
