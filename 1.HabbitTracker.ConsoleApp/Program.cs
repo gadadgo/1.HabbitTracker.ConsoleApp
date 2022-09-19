@@ -76,13 +76,13 @@ void MultiplicationGame()
 
 void DivisionGame()
 {
+    var score = 0;
     for (int i = 0; i < 6; i++)
     {
         var divisionNumbers = GetDivisionNumbers();
         var firstNumber = divisionNumbers[0];
         var secondNumber = divisionNumbers[1];
-        int score = 0;
-
+        
         Console.WriteLine($"{firstNumber} / {secondNumber}");
         var result = Console.ReadLine();
         if (int.Parse(result) == firstNumber / secondNumber)
@@ -94,7 +94,7 @@ void DivisionGame()
         {
             Console.WriteLine("The answer is wrong");
         }
-        if (i == 5)
+        if (i == 2)
         {
             Console.WriteLine($"Game over! Your score is {score}");
         }
@@ -173,14 +173,14 @@ void Exit()
 int[] GetDivisionNumbers()
 {
     var random = new Random();
-    var firstNumber = random.Next(0, 99);
-    var secondNumber = random.Next(0, 99);
+    var firstNumber = random.Next(1, 99);
+    var secondNumber = random.Next(1, 99);
     var result = new int[2];
 
     while (firstNumber % secondNumber != 0)
     {
-        firstNumber = random.Next(0, 99);
-        secondNumber = random.Next(0, 99);
+        firstNumber = random.Next(1, 99);
+        secondNumber = random.Next(1, 99);
     }
 
     result[0] = firstNumber;
