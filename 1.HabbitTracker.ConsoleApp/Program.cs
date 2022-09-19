@@ -1,12 +1,10 @@
-﻿//Part 6
+﻿//Math game 
 
 Console.WriteLine("Please enter your name");
 
 var name = Console.ReadLine();
 
 var date = DateTime.UtcNow;
-
-
 
 string introduction = $@"What game would you like to play? Choose below.
 A - Addition
@@ -16,7 +14,7 @@ M - Multiplication
 Q - Quit the program";
 
 Console.WriteLine($"Hello {name} it is {date.DayOfWeek} , welcome the the math game");
-Console.WriteLine("/n");
+//Console.WriteLine("/n");
 Console.WriteLine(introduction);
 
 Console.WriteLine("------------------------------------");
@@ -58,9 +56,9 @@ void MultiplicationGame()
         var random = new Random();
         firstNumber = random.Next(1, 10);
         secondNumber = random.Next(1, 10);
-        Console.WriteLine($"{firstNumber} + {secondNumber}");
+        Console.WriteLine($"{firstNumber} * {secondNumber}");
         var result = Console.ReadLine();
-        if (int.Parse(result) == firstNumber + secondNumber)
+        if (int.Parse(result) == firstNumber * secondNumber)
         {
             Console.WriteLine("The answer is correct");
             score++;
@@ -78,19 +76,28 @@ void MultiplicationGame()
 
 void DivisionGame()
 {
-    Console.WriteLine("Division game is selected");
-    var random = new Random();
-    int firstNumber = random.Next(1, 10);
-    int secondNumber = random.Next(1, 10);
-    Console.WriteLine($"{firstNumber} : {secondNumber}");
-    var result = Console.ReadLine();
-    if (int.Parse(result) == firstNumber / secondNumber)
+    for (int i = 0; i < 6; i++)
     {
-        Console.WriteLine("The answer is correct");
-    }
-    else
-    {
-        Console.WriteLine("The answer is wrong");
+        var divisionNumbers = GetDivisionNumbers();
+        var firstNumber = divisionNumbers[0];
+        var secondNumber = divisionNumbers[1];
+        int score = 0;
+
+        Console.WriteLine($"{firstNumber} / {secondNumber}");
+        var result = Console.ReadLine();
+        if (int.Parse(result) == firstNumber / secondNumber)
+        {
+            Console.WriteLine("The answer is correct");
+            score++;
+        }
+        else
+        {
+            Console.WriteLine("The answer is wrong");
+        }
+        if (i == 5)
+        {
+            Console.WriteLine($"Game over! Your score is {score}");
+        }
     }
 }
 
@@ -161,6 +168,25 @@ void Exit()
 {
     Console.WriteLine("Goodbye");
     Environment.Exit(2);
+}
+
+int[] GetDivisionNumbers()
+{
+    var random = new Random();
+    var firstNumber = random.Next(0, 99);
+    var secondNumber = random.Next(0, 99);
+    var result = new int[2];
+
+    while (firstNumber % secondNumber != 0)
+    {
+        firstNumber = random.Next(0, 99);
+        secondNumber = random.Next(0, 99);
+    }
+
+    result[0] = firstNumber;
+    result[1] = secondNumber;
+
+    return result;
 }
 
 Environment.Exit(0);
