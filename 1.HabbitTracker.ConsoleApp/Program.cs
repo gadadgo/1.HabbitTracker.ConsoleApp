@@ -3,44 +3,72 @@
 Console.WriteLine("Please enter your name");
 
 var name = Console.ReadLine();
-
 var date = DateTime.UtcNow;
 
-string introduction = $@"What game would you like to play? Choose below.
+var games = new List<string>();
+
+Menu(name);
+
+void Menu(string? name)
+{
+    string introduction = $@"What game would you like to play? Choose below.
+V - View score history
 A - Addition
 S - Subtraction
 D - Division
 M - Multiplication
 Q - Quit the program";
 
-Console.WriteLine($"Hello {name} it is {date.DayOfWeek} , welcome the the math game");
-//Console.WriteLine("/n");
-Console.WriteLine(introduction);
+    Console.WriteLine($"Hello {name} it is {date.DayOfWeek} , welcome the the math game");
+    
 
-Console.WriteLine("------------------------------------");
+    Console.WriteLine("------------------------------------");
 
-var gameSelected = Console.ReadLine();
+    var isGameOn = true;
 
-switch (gameSelected.Trim().ToLower())
+    do
+    {
+        Console.WriteLine(introduction);
+
+        var gameSelected = Console.ReadLine();
+
+        switch (gameSelected.Trim().ToLower())
+        {
+            case "v":
+                GetGames();
+                break;
+            case "a":
+                AdditionGame();
+                break;
+            case "s":
+                SubtractinGame();
+                break;
+            case "d":
+                DivisionGame();
+                break;
+            case "m":
+                MultiplicationGame();
+                break;
+            case "q":
+                Exit();
+                isGameOn = false;
+                break;
+            default:
+                Console.WriteLine("Invalid input");
+                break;
+        }
+    }while(isGameOn);
+}
+
+void GetGames()
 {
-    case "a":
-        AdditionGame();
-        break;
-    case "s":
-        SubtractinGame();
-        break;
-    case "d":
-        DivisionGame();
-        break;
-    case "m":
-        MultiplicationGame();
-        break;
-    case "q":
-        Exit();
-        break;
-    default:
-        Console.WriteLine("Invalid input");
-        break;
+    Console.Clear();
+    Console.WriteLine("Games history");
+    foreach(var game in games)
+    {
+        Console.WriteLine(game);
+    }
+    Console.WriteLine("Press 'Enter' to continue");
 }
 
 void MultiplicationGame()
@@ -61,13 +89,13 @@ void MultiplicationGame()
         var result = Console.ReadLine();
         if (int.Parse(result) == firstNumber * secondNumber)
         {
-            Console.WriteLine("The answer is correct. Type any key for the next question");
+            Console.WriteLine("The answer is correct, press 'Enter' button to continue");
             Console.ReadLine();
             score++;
         }
         else
         {
-            Console.WriteLine("The answer is wrong. Type any key for the next question");
+            Console.WriteLine("The answer is wrong, press 'Enter' button to continue");
             Console.ReadLine();
         }
         if (i == 5)
@@ -92,13 +120,13 @@ void DivisionGame()
         var result = Console.ReadLine();
         if (int.Parse(result) == firstNumber / secondNumber)
         {
-            Console.WriteLine("The answer is correct. Type any key for the next question");
+            Console.WriteLine("The answer is correct, press 'Enter' to continue");
             Console.ReadLine();
             score++;
         }
         else
         {
-            Console.WriteLine("The answer is wrong. Type any key for the next question");
+            Console.WriteLine("The answer is wrong, press 'Enter' to continue");
             Console.ReadLine();
         }
         if (i == 5)
@@ -126,13 +154,13 @@ void SubtractinGame()
         var result = Console.ReadLine();
         if (int.Parse(result) == firstNumber - secondNumber)
         {
-            Console.WriteLine("The answer is correct. Type any key for the next question");
+            Console.WriteLine("The answer is correct, press 'Enter' to continue");
             Console.ReadLine();
             score++;
         }
         else
         {
-            Console.WriteLine("The answer is wrong. Type any key for the next question");
+            Console.WriteLine("The answer is wrong, press 'Enter' to continue");
             Console.ReadLine();
         }
         if (i == 5)
@@ -161,13 +189,13 @@ void AdditionGame()
         var result = Console.ReadLine();
         if (int.Parse(result) == firstNumber + secondNumber)
         {
-            Console.WriteLine("The answer is correct");
+            Console.WriteLine("The answer is correct, press 'Enter' to continue");
             Console.ReadLine();
             score++;
         }
         else
         {
-            Console.WriteLine("The answer is wrong");
+            Console.WriteLine("The answer is wrong, press 'Enter' to continue");
             Console.ReadLine();
         }
         if (i == 5)
@@ -175,6 +203,8 @@ void AdditionGame()
             Console.WriteLine($"Game over, your score is {score}");
         }
     }
+
+    games.Add($"{DateTime.Now} - Addition = {score}");
 }
 
 void Exit()
