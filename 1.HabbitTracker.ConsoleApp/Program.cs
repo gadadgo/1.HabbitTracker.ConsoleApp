@@ -1,5 +1,7 @@
 ﻿//Math game 
 
+using static System.Formats.Asn1.AsnWriter;
+
 Console.WriteLine("Please enter your name");
 
 var name = Console.ReadLine();
@@ -69,6 +71,7 @@ void GetGames()
         Console.WriteLine(game);
     }
     Console.WriteLine("Press 'Enter' to continue");
+    Console.ReadLine();
 }
 
 void MultiplicationGame()
@@ -103,6 +106,7 @@ void MultiplicationGame()
             Console.WriteLine($"Game over, your score is {score}");
         }
     }
+    AddToHistory(score, "Multiplication");
 }
 
 void DivisionGame()
@@ -134,6 +138,7 @@ void DivisionGame()
             Console.WriteLine($"Game over! Your score is {score}");
         }
     }
+    AddToHistory(score, "Division");
 }
 
 void SubtractinGame()
@@ -168,6 +173,7 @@ void SubtractinGame()
             Console.WriteLine($"Game over, your score is {score}");
         }
     }
+    AddToHistory(score, "Subtraction");
 }
 
 void AdditionGame()
@@ -204,13 +210,18 @@ void AdditionGame()
         }
     }
 
-    games.Add($"{DateTime.Now} - Addition = {score}");
+    AddToHistory(score, "Addition");
 }
 
 void Exit()
 {
     Console.WriteLine("Goodbye");
     Environment.Exit(2);
+}
+
+void AddToHistory(int gameScore, string gameType)
+{
+    games.Add($"{DateTime.Now} - {gameType}: {gameScore}");
 }
 
 int[] GetDivisionNumbers()
