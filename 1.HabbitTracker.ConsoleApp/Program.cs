@@ -1,66 +1,25 @@
-﻿//Math game 
-
+﻿
+using _1.HabbitTracker.ConsoleApp;
+using System.ComponentModel.Design;
 using static System.Formats.Asn1.AsnWriter;
 
 Console.WriteLine("Please enter your name");
 
 var name = Console.ReadLine();
 var date = DateTime.UtcNow;
-
 var games = new List<string>();
+var menu = new Menu();
 
-Menu(name);
+menu.ShowMenu(name, date);
 
-void Menu(string? name)
+string GetName()
 {
-    string introduction = $@"What game would you like to play? Choose below.
-V - View score history
-A - Addition
-S - Subtraction
-D - Division
-M - Multiplication
-Q - Quit the program";
-
-    Console.WriteLine($"Hello {name} it is {date.DayOfWeek} , welcome the the math game");
-    
-
-    Console.WriteLine("------------------------------------");
-
-    var isGameOn = true;
-
-    do
-    {
-        Console.WriteLine(introduction);
-
-        var gameSelected = Console.ReadLine();
-
-        switch (gameSelected.Trim().ToLower())
-        {
-            case "v":
-                GetGames();
-                break;
-            case "a":
-                AdditionGame();
-                break;
-            case "s":
-                SubtractinGame();
-                break;
-            case "d":
-                DivisionGame();
-                break;
-            case "m":
-                MultiplicationGame();
-                break;
-            case "q":
-                Exit();
-                isGameOn = false;
-                break;
-            default:
-                Console.WriteLine("Invalid input");
-                break;
-        }
-    }while(isGameOn);
+    Console.WriteLine("Please enter your name");
+    var name = Console.ReadLine();
+    return name;
 }
+
+
 
 void GetGames()
 {
