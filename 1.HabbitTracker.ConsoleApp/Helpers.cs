@@ -2,7 +2,7 @@
 internal class Helpers
 {
    internal static List<Game> games = new();
-    internal void GetGames()
+    internal static void GetGames()
     {
         Console.Clear();
         Console.WriteLine("Games history");
@@ -22,7 +22,7 @@ internal class Helpers
             Type = gameType
         });
     }
-    internal int[] GetDivisionNumbers()
+    internal static int[] GetDivisionNumbers()
     {
         var random = new Random();
         var firstNumber = random.Next(1, 99);

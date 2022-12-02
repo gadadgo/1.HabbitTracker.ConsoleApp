@@ -35,7 +35,7 @@ internal class GameEngine
                 Console.WriteLine($"Game over, your score is {score}");
             }
         }
-        helpers.AddToHistory(score, "Multiplication");
+        Helpers.AddToHistory(score, "Multiplication");
     }
 
     internal void DivisionGame()
@@ -67,7 +67,7 @@ internal class GameEngine
                 Console.WriteLine($"Game over! Your score is {score}");
             }
         }
-        helpers.AddToHistory(score, "Division");
+        Helpers.AddToHistory(score, "Division");
     }
 
     internal void SubtractinGame()
@@ -102,7 +102,7 @@ internal class GameEngine
                 Console.WriteLine($"Game over, your score is {score}");
             }
         }
-        helpers.AddToHistory(score, "Subtraction");
+        Helpers.AddToHistory(score, "Subtraction");
     }
 
     internal void AdditionGame()
@@ -139,7 +139,7 @@ internal class GameEngine
             }
         }
 
-        helpers.AddToHistory(score, "Addition");
+        Helpers.AddToHistory(score, "Addition");
     }
 
     internal void Exit()

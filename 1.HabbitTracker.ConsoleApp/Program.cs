@@ -7,7 +7,7 @@ Console.WriteLine("Please enter your name");
 
 var name = Console.ReadLine();
 var date = DateTime.UtcNow;
-var games = new List<string>();
+var games = new List<Game>();
 var menu = new Menu();
 
 
