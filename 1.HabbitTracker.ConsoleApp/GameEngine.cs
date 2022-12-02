@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _1.HabbitTracker.ConsoleApp
+﻿namespace _1.HabbitTracker.ConsoleApp
 {
     internal class GameEngine
     {
+        Helpers helpers = new Helpers();
         internal void MultiplicationGame()
         {
             int firstNumber;
@@ -40,7 +35,7 @@ namespace _1.HabbitTracker.ConsoleApp
                     Console.WriteLine($"Game over, your score is {score}");
                 }
             }
-            AddToHistory(score, "Multiplication");
+            helpers.AddToHistory(score, "Multiplication");
         }
 
         internal void DivisionGame()
@@ -50,7 +45,7 @@ namespace _1.HabbitTracker.ConsoleApp
             for (int i = 0; i < 6; i++)
             {
                 Console.Clear();
-                var divisionNumbers = GetDivisionNumbers();
+                var divisionNumbers = helpers.GetDivisionNumbers();
                 var firstNumber = divisionNumbers[0];
                 var secondNumber = divisionNumbers[1];
 
@@ -72,7 +67,7 @@ namespace _1.HabbitTracker.ConsoleApp
                     Console.WriteLine($"Game over! Your score is {score}");
                 }
             }
-            AddToHistory(score, "Division");
+            helpers.AddToHistory(score, "Division");
         }
 
         internal void SubtractinGame()
@@ -107,7 +102,7 @@ namespace _1.HabbitTracker.ConsoleApp
                     Console.WriteLine($"Game over, your score is {score}");
                 }
             }
-            AddToHistory(score, "Subtraction");
+            helpers.AddToHistory(score, "Subtraction");
         }
 
         internal void AdditionGame()
@@ -144,7 +139,7 @@ namespace _1.HabbitTracker.ConsoleApp
                 }
             }
 
-            AddToHistory(score, "Addition");
+            helpers.AddToHistory(score, "Addition");
         }
 
         internal void Exit()

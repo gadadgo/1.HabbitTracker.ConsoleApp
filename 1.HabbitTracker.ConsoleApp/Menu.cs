@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace _1.HabbitTracker.ConsoleApp
 {
     internal class Menu
     {
+        GameEngine gameEngine = new(); 
+        Helpers helpers = new Helpers();
         internal void ShowMenu(string name, DateTime date)
         {
             string introduction = $@"What game would you like to play? Choose below.
@@ -19,7 +16,6 @@ M - Multiplication
 Q - Quit the program";
 
             Console.WriteLine($"Hello {name} it is {date.DayOfWeek} , welcome the the math game");
-
 
             Console.WriteLine("------------------------------------");
 
@@ -34,22 +30,22 @@ Q - Quit the program";
                 switch (gameSelected.Trim().ToLower())
                 {
                     case "v":
-                        GetGames();
+                        helpers.GetGames();
                         break;
                     case "a":
-                        AdditionGame();
+                        gameEngine.AdditionGame();
                         break;
                     case "s":
-                        SubtractinGame();
+                        gameEngine.SubtractinGame();
                         break;
                     case "d":
-                        DivisionGame();
+                        gameEngine.DivisionGame();
                         break;
                     case "m":
-                        MultiplicationGame();
+                        gameEngine.MultiplicationGame();
                         break;
                     case "q":
-                        Exit();
+                        gameEngine.Exit();
                         isGameOn = false;
                         break;
                     default:
